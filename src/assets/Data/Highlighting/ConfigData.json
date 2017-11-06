@@ -1,0 +1,50 @@
+{
+  "rows": [
+    {
+      "uniqueName": "Brand"
+    },
+    {
+      "uniqueName": "Retailer_Name"
+    },
+    {
+      "uniqueName": "CAL_Wk_End_Dt"
+    }
+  ],
+  "columns": [
+    {
+      "uniqueName": "[Measures]"
+    }
+  ],
+  "measures": [
+    {
+      "uniqueName": "Sold_Dollars",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "Sell_Price",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "Sold_Units",
+      "aggregation": "sum"
+    }
+  ],
+  "conditions": [
+    {
+      "formula": "#value > 75",
+      "measure": "Sold_Dollars",
+      "format": {
+        "backgroundColor": "#00A45A",
+        "color": "#FFFFFF"
+      }
+    },
+    {
+      "formula": "AND(#value > 75, #value < 100)",
+      "measure": "Sold_Units",
+      "format": {
+        "backgroundColor": "#df3800",
+        "color": "#FFFFFF"
+      }
+    }
+  ]
+}

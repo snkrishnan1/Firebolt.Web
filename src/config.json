@@ -1,0 +1,8 @@
+{
+  "SecurityService": "http://localhost/FireboltSecurity/api/",
+  "CacheService": "http://localhost/BlueSkyDataCache/api/",
+  "ClientAPIService": "http://localhost/BlueSkyFireboltClientAPI/api/",
+  "WidgetConfigService": "http://localhost/FireboltRedisAPI/api/Reports/",
+  "QlikService": "http://localhost/QlikDotNet/api/",
+  "QlikDomain": "VM-MNDTRE-CLCKD"
+}

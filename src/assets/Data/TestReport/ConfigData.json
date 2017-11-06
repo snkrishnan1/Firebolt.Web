@@ -1,0 +1,80 @@
+{
+  "rows": [
+    {
+      "uniqueName": "Brand",
+      "sort": "desc"
+    },
+    {
+      "uniqueName": "Retailer_Name",
+      "sort": "desc"
+    },
+    {
+      "uniqueName": "Category",
+      "sort": "desc"
+    },
+    {
+      "uniqueName": "CAL_Wk_End_Dt",
+      "sort": "asc"
+    
+    }
+  ],
+  "columns": [
+    {
+      "uniqueName": "[Measures]"
+    }
+  ],
+  "measures": [
+    {
+      "uniqueName": "Sold_Dollars",
+      "aggregation": "sum",
+      "format": "currency",
+      "caption": "Sold Dollars"
+    },
+    {
+      "uniqueName": "Sell_Price",
+      "aggregation": "sum",
+      "format": "currency",
+      "caption": "Sell Price"
+    },
+    {
+      "uniqueName": "Sold_Units",
+      "aggregation": "sum",
+      "format": "numeric",
+      "caption": "Sold Units"
+    }
+  ],
+  "expands": {
+    "rows": [
+      {
+        "tuple": [
+          "brand.[acid begone]"
+        ]
+      }
+    ]
+  },
+  "formats": [
+    {
+      "name": "currency",
+      "currencySymbol": "$",
+      "thousandsSeparator": ",",
+      "decimalSeparator": ".",
+      "decimalPlaces": 2,
+      "currencySymbolAlign": "left",
+      "nullValue": " ",
+      "infinityValue": "Infinity",
+      "divideByZeroValue": "Infinity"
+    },
+    {
+      "name": "numeric",
+      "thousandsSeparator": ",",
+      "nullValue": " ",
+      "infinityValue": "Infinity",
+      "divideByZeroValue": "Infinity"
+    },
+    {
+      "name": "DateFormat",
+      "datePattern": "MM-dd-yyyy",
+      "nullValue": " "
+    }
+  ]
+}

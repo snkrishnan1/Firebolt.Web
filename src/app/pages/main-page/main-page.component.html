@@ -1,0 +1,154 @@
+<md-sidenav-container>
+  <md-sidenav #sidenav [mode]="sidenavMode" opened="true" class="left-sidenav"
+              (open)="resizeService.resizeInformer$.next()" (close)="resizeService.resizeInformer$.next()">
+    <header class="sidenav-header" fxLayout="row" fxLayoutAlign="space-between center">
+      <button md-icon-button (click)="sidenav.toggle()">
+        <md-icon>arrow_back</md-icon>
+      </button>
+      <div fxFlex class="text-center pad-right-xl">
+        <a href="/">
+          <img *ngIf="darkTheme; else darkLogo" src="/assets/logo/MindtreeLogo.png">
+          <ng-template #darkLogo>
+            <img src="/assets/logo/MindtreeLogo.png">
+          </ng-template>
+        </a>
+      </div>
+    </header>
+    <perfect-scrollbar class="perfect-scrollbar">
+      <px-gdn-sidemenu>
+        <px-gdn-sideitem title="Dashboard" [routerLinkUrl]="'dashboard'">
+          <md-icon>dashboard</md-icon>
+        </px-gdn-sideitem>
+        <px-gdn-sideitem title="PivotGrid" [routerLinkUrl]="'PivotGrid'">
+          <md-icon>PivotGrid</md-icon>
+        </px-gdn-sideitem>
+        <px-gdn-sideitem title="Options" (click)="optionsnav.toggle()">
+          <md-icon>settings</md-icon>
+        </px-gdn-sideitem>
+        <px-gdn-sideitem title="Tabs" [routerLinkUrl]="'tabs'">
+          <md-icon>keyboard_arrow_right</md-icon>
+        </px-gdn-sideitem>
+        <px-gdn-sideitem title="Storybook" [routerLinkUrl]="'storybook'">
+          <md-icon>Storybook</md-icon>
+        </px-gdn-sideitem>
+        <px-gdn-sideitem title="TestPivotGrid" [routerLinkUrl]="'TestPivotGrid'">
+          <md-icon>TestPivotGrid</md-icon>
+        </px-gdn-sideitem>
+      </px-gdn-sidemenu>
+    </perfect-scrollbar>
+    <footer class="secondary-text-color">
+      <md-divider></md-divider>
+      <p>Mindtree © All Rights Reserved</p>
+    </footer>
+  </md-sidenav>
+  <md-sidenav #optionsnav mode="over" align="end">
+    <md-toolbar color="primary">
+      <h5>Theme options</h5>
+      <span fxFlex></span>
+      <button md-icon-button (click)="optionsnav.close()">
+        <md-icon>close</md-icon>
+      </button>
+    </md-toolbar>
+    <div class="pad" fxLayoutAlign="space-between center">
+      <span class="md-subhead">Dark theme</span>
+      <md-slide-toggle [(ngModel)]="darkTheme"></md-slide-toggle>
+    </div>
+    <div class="pad" fxLayoutAlign="space-between center">
+      <span class="md-subhead">Sidenav mode</span>
+      <md-select [(ngModel)]="sidenavMode">
+        <md-option value="side">Side</md-option>
+        <md-option value="over">Over</md-option>
+        <md-option value="push">Push</md-option>
+      </md-select>
+    </div>
+    <div class="pad" fxLayoutAlign="space-between center">
+      <span class="md-subhead">Boxed layout</span>
+      <md-slide-toggle [(ngModel)]="boxedLayout"></md-slide-toggle>
+    </div>
+  </md-sidenav>
+  <md-toolbar color="primary">
+    <button md-icon-button (click)="sidenav.toggle()">
+      <md-icon>menu</md-icon>
+    </button>
+    <a fxHide="true" fxHide.gt-sm="false" href="/" class="logo">
+      <img src="/assets/logo/FireboltLogoWhite60.png">
+    </a>
+    <!--<span fxHide="true" fxHide.gt-sm="false">Application</span>-->
+    <span fxFlex></span>
+    <td-search-box [alwaysVisible]="false" fxHide="true" fxHide.gt-sm="false"></td-search-box>
+    <button md-icon-button [mdMenuTriggerFor]="lettersMenu">
+      <td-notification-count [notifications]="3">
+        <md-icon>mail</md-icon>
+      </td-notification-count>
+    </button>
+    <md-menu #lettersMenu="mdMenu">
+      <md-nav-list>
+        <a md-list-item *ngFor="let message of messages">
+          <img md-list-avatar [src]="message.image">
+          <h4 mdLine fxLayoutAlign="space-between">
+            <span>{{message.subject}}</span>
+            <span class="md-caption">{{message.time}}</span>
+          </h4>
+          <p mdLine>
+            <span>{{message.message}}</span>
+          </p>
+        </a>
+      </md-nav-list>
+      <div class="text-center">
+        <button md-button>View all</button>
+      </div>
+    </md-menu>
+    <img src="assets/avatars/4040.png" class="cursor-pointer push-left-sm" [mdMenuTriggerFor]="userMenu">
+    <md-menu #userMenu="mdMenu">
+      <md-list>
+        <md-list-item>
+          <img md-list-avatar src="assets/avatars/4040.png">
+          <h4 mdLine> Olivia Werner </h4>
+          <p mdLine>
+            <span>Admin</span>
+          </p>
+        </md-list-item>
+        <md-divider></md-divider>
+      </md-list>
+      <md-nav-list>
+        <a md-list-item>
+          <h4 mdLine>View Profile</h4>
+        </a>
+        <a md-list-item>
+          <h4 mdLine>Password</h4>
+        </a>
+        <a md-list-item>
+          <h4 mdLine>Sign out</h4>
+        </a>
+      </md-nav-list>
+    </md-menu>
+    <button md-icon-button [mdMenuTriggerFor]="settingsMenu">
+      <md-icon>more_vert</md-icon>
+    </button>
+    <md-menu #settingsMenu="mdMenu">
+      <button md-menu-item>
+        <md-icon>settings</md-icon>
+        Settings
+      </button>
+      <button md-menu-item>
+        <md-icon>language</md-icon>
+        Language
+      </button>
+      <button md-menu-item>
+        <md-icon>notifications_off</md-icon>
+        Notifications
+      </button>
+      <button md-menu-item>
+        <md-icon>share</md-icon>
+        Share
+      </button>
+    </md-menu>
+   
+  </md-toolbar>
+  <div class="wrapper" [class.wrapper-box]="boxedLayout">
+    <img class="imgBar" src="../../../assets/logo/MindtreeBar.png" />
+    <div style="padding: 0 10px;">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</md-sidenav-container>

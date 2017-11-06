@@ -1,0 +1,177 @@
+{
+  "rows": [
+    {
+      "uniqueName": "Prime_Item_Desc"
+    },
+    {
+      "uniqueName": "Retailer_Name"
+    },
+    {
+      "uniqueName": "State"
+    },
+    {
+      "uniqueName": "VendorName"
+    }
+  ],
+  "columns": [
+    {
+      "uniqueName": "[Measures]"
+    }
+  ],
+  "measures": [
+    {
+      "uniqueName": "UnitsSold1Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "KPI",
+      "formula": "if( sum('UnitsSold1Week')  < 50, -1, if( sum('UnitsSold1Week')  > 50, 1, 0) ) ",
+      "caption": "UnitsSold KPI",
+      "active": true,
+      "groupName": "StatusArrow"
+    },
+    {
+      "uniqueName": "AnnualizedUnitsPerWeek",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "Item_Nbr",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "LYUnitDollars1Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "KPILYDollars",
+      "formula": "if( sum(\"LYUnitDollars1Week\")  < 560, -1, if( sum(\"LYUnitDollars1Week\")  > 5000, 1, 0) ) ",
+      "caption": "UnitDollars KPI",
+      "active": true,
+      "groupName": "Faces"
+    },
+    {
+      "uniqueName": "LYUnitDollars2Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "KPILYDollars2Week",
+      "formula": "if( sum(\"LYUnitDollars2Week\")  < 560, -1, if( sum(\"LYUnitDollars2Week\")  > 5000, 1, 0) ) ",
+      "caption": "UnitDollars 2 Week KPI",
+      "active": true,
+      "groupName": "ReversedCylinder"
+    },
+    {
+      "uniqueName": "LYUnitDollars32Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "LYUnitDollars4Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "LYUnitDollars52Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "LYUnitDollars8Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "LYUnitDollarsYTD",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "LYUnitsSold1Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "LYUnitsSold2Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "LYUnitsSold32Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "LYUnitsSold4Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "LYUnitsSold52Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "LYUnitsSold8Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "LYUnitsSoldYTD",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "OnHandDollars",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "OnHandUnits",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "SellThru",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "UnitDollars1Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "UnitDollars2Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "UnitDollars32Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "UnitDollars4Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "UnitDollars52Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "UnitDollars8Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "UnitDollarsYTD",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "UnitsSold2Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "UnitsSold32Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "UnitsSold4Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "UnitsSold52Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "UnitsSold8Week",
+      "aggregation": "sum"
+    },
+    {
+      "uniqueName": "UnitsSoldYTD",
+      "aggregation": "sum"
+    }
+  ],
+  "KPIColumns": "KPI,KPILYDollars,KPILYDollars2Week"
+}

@@ -1,0 +1,40 @@
+{
+  "rows": [
+    {
+      "uniqueName": "Brand",
+      "caption": "Brand Name"
+    }
+  ],
+  "columns": [
+    {
+      "uniqueName": "[Measures]"
+    }
+  ],
+  "measures": [
+    {
+      "uniqueName": "Sold_Dollars",
+      "aggregation": "sum",
+      "caption": "Sold Dollars1"
+    },
+    {
+      "uniqueName": "Calc2",
+      "caption": "Calc 2",
+      "formula": "sum('Sold_Dollars')  * 2"
+    },
+    {
+      "uniqueName": "Calc3",
+      "caption": "Calc 3",
+      "formula": "sum('Sold_Dollars') * 3"
+    },
+    {
+      "uniqueName": "Calc4",
+      "caption": "Calc 4",
+      "formula": "sum('Sold_Dollars') * 4"
+    },
+    {
+      "uniqueName": "Calc5",
+      "caption": "Calc 5",
+      "formula": "sum('Sold_Dollars') * 5"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <section class="container">
+    <div class="container-page">
+      <div class="col-xs-12 col-md-12">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-4">
+          <table>
+            <tr style="vertical-align: top;">
+              <td></td>
+              <td>
+                <md-select placeholder="Select value" [(ngModel)]="selectValue">
+                  <div *ngFor="let app of workbookSheetsList">
+                    <md-option (click)=onChange(app) [value]="'selectValue'">{{ app.name }}</md-option>
+                  </div>
+                </md-select>
+              </td>
+              <td style="padding-left: 15px !important;">
+              </td>
+              <td> <!--{{ReportID}}--></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-12">
+        <div id="outerDiv" [style.width]="customizeWidth">
+          <Pivot-Grid #pivot1 [ReportID]="Report1ID"></Pivot-Grid>
+          <br />
+          <Pivot-Grid #pivot2 [ReportID]="Report2ID"></Pivot-Grid>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+

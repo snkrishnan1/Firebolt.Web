@@ -1,0 +1,108 @@
+<section>
+  <header>
+    <h3 class="primary-color">Menu</h3>
+  </header>
+  <article fxLayout="column" fxLayout.gt-sm="row">
+    <div fxFlex="33">
+      <md-card>
+        <md-card-content>
+          <p>You clicked on: {{ selected }}</p>
+
+          <md-toolbar>
+            <button md-icon-button [mdMenuTriggerFor]="menu" aria-label="Open basic menu">
+              <md-icon>more_vert</md-icon>
+            </button>
+            <md-menu #menu="mdMenu">
+              <button md-menu-item *ngFor="let item of items" (click)="select(item.text)" [disabled]="item.disabled">
+                {{ item.text }}
+              </button>
+            </md-menu>
+          </md-toolbar>
+
+        </md-card-content>
+      </md-card>
+      <md-card>
+        <md-card-content>
+          <p> Clicking these will navigate:</p>
+          <md-toolbar>
+            <button md-icon-button [mdMenuTriggerFor]="anchorMenu" aria-label="Open anchor menu">
+              <md-icon>more_vert</md-icon>
+            </button>
+          </md-toolbar>
+
+          <md-menu #anchorMenu="mdMenu">
+            <a md-menu-item *ngFor="let item of items" href="/" [disabled]="item.disabled">
+              {{ item.text }}
+            </a>
+          </md-menu>
+        </md-card-content>
+      </md-card>
+    </div>
+    <div fxFlex="33">
+      <md-card>
+        <md-card-content>
+          <p>xPosition after and yPosition below</p>
+          <md-toolbar>
+            <button md-icon-button [mdMenuTriggerFor]="menuBelow">
+              <md-icon>more_vert</md-icon>
+            </button>
+          </md-toolbar>
+          <md-menu #menuBelow="mdMenu" xPosition="after" yPosition="below">
+            <button md-menu-item *ngFor="let item of items" [disabled]="item.disabled">
+              {{ item.text }}
+            </button>
+          </md-menu>
+        </md-card-content>
+      </md-card>
+      <md-card>
+        <md-card-content>
+          <p>xPosition after and yPosition above</p>
+          <md-toolbar>
+            <button md-icon-button [mdMenuTriggerFor]="menuAfter">
+              <md-icon>more_vert</md-icon>
+            </button>
+          </md-toolbar>
+          <md-menu #menuAfter="mdMenu" xPosition="after" yPosition="above">
+            <button md-menu-item *ngFor="let item of items" [disabled]="item.disabled">
+              {{ item.text }}
+            </button>
+          </md-menu>
+        </md-card-content>
+      </md-card>
+    </div>
+    <div fxFlex="33">
+      <md-card>
+        <md-card-content>
+          <p>xPosition before and yPosition below</p>
+          <md-toolbar class="end-icon">
+            <button md-icon-button [mdMenuTriggerFor]="menuAbove">
+              <md-icon>more_vert</md-icon>
+            </button>
+          </md-toolbar>
+          <md-menu #menuAbove="mdMenu" xPosition="before" yPosition="below">
+            <button md-menu-item *ngFor="let item of iconItems" [disabled]="item.disabled">
+              <md-icon>{{ item.icon }}</md-icon>
+              {{ item.text }}
+            </button>
+          </md-menu>
+        </md-card-content>
+      </md-card>
+      <md-card>
+        <md-card-content>
+          <p>xPosition before and yPosition above</p>
+          <md-toolbar class="end-icon">
+            <button md-icon-button [mdMenuTriggerFor]="menuBefore">
+              <md-icon>more_vert</md-icon>
+            </button>
+          </md-toolbar>
+          <md-menu #menuBefore="mdMenu" xPosition="before" yPosition="above">
+            <button md-menu-item *ngFor="let item of iconItems" [disabled]="item.disabled">
+              <md-icon>{{ item.icon }}</md-icon>
+              {{ item.text }}
+            </button>
+          </md-menu>
+        </md-card-content>
+      </md-card>
+    </div>
+  </article>
+</section>

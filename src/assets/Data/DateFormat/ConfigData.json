@@ -1,0 +1,73 @@
+{
+  "rows": [
+    {
+      "uniqueName": "Brand"
+    },
+    {
+      "uniqueName": "Retailer_Name"
+    },
+    {
+      "uniqueName": "CAL_Wk_End_Dt.Month",
+      "caption": "Month"
+    },
+    {
+      "uniqueName": "CAL_Wk_End_Date",
+      "caption": "Date"
+    }
+  ],
+  "columns": [
+    {
+      "uniqueName": "CAL_Wk_End_Dt.Year",
+      "caption": "Year"
+    },
+    {
+      "uniqueName": "CAL_Wk_End_Dt.Day",
+      "caption": "Day"   
+    },
+    {
+      "uniqueName": "[Measures]"
+    }
+  ],
+  "measures": [
+    {
+      "uniqueName": "Sold_Dollars",
+      "aggregation": "sum",
+      "caption": "Sold Dollars"
+    },
+    {
+      "uniqueName": "Sell_Price",
+      "aggregation": "sum",
+      "caption": "Sell Price"
+    },
+    {
+      "uniqueName": "Sold_Units",
+      "aggregation": "sum",
+      "caption": "Sold Units"
+    }
+  ],
+  "formats": [
+    {
+      "name": "currency",
+      "currencySymbol": "$",
+      "thousandsSeparator": ",",
+      "decimalSeparator": ".",
+      "decimalPlaces": 2,
+      "currencySymbolAlign": "left",
+      "nullValue": " ",
+      "infinityValue": "Infinity",
+      "divideByZeroValue": "Infinity"
+    },
+    {
+      "name": "numeric",
+      "thousandsSeparator": ",",
+      "nullValue": " ",
+      "infinityValue": "Infinity",
+      "divideByZeroValue": "Infinity"
+    },
+    {
+      "name": "DateFormat",
+      "datePattern": "MM-dd-yyyy",
+      "nullValue": " "
+    }
+  ]
+}

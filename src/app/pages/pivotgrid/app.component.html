@@ -1,0 +1,12 @@
+<fm-pivot [componentFolder]="'https://cdn.flexmonster.com/'"
+		      [toolbar]="true"
+          [width]="'100%'"
+          [height]="500"
+          [report]="ReportData"
+          [licenseKey] = "'Z7JX-XJ922M-0V356H-6K6O1U-2J5441-6L191Z-363Z3R-713Y5W-6W3H0N-6H123I-5V1D'"
+          (customizeCell)="customizeCellFunction($event)"
+          (ready)="onPivotReady($event)"
+          (beforetoolbarcreated)="customizeToolbar($event)">
+    Flexmonster will appear here
+</fm-pivot>
+

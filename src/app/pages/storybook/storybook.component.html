@@ -1,0 +1,93 @@
+<section>
+  <!--<header>
+    <h3 class="primary-color">Tabs</h3>
+  </header>-->
+  <article>
+    <!--<md-card>-->
+      <md-card-title>Storybook</md-card-title>
+    <md-select placeholder="Select value" [(ngModel)]="selectValue">
+      <div *ngFor="let app of workbookSheetsList">
+        <md-option (click)=onChange(app) [value]="'selectValue'">{{ app.name }}</md-option>
+      </div>
+    </md-select>
+      <!--<button md-raised-button color="primary" (click)="addTab(createWithLongContent)">
+        Add
+      </button>-->
+     
+      <md-card-content>
+        <!--<div>
+          Selected tab index:
+          <md-input-container>
+            <input mdInput type="number" [(ngModel)]="activeTabIndex">
+          </md-input-container>
+        </div>-->
+
+        <div fxLayout="column" fxLayout.gt-sm="row">
+          <!--<md-card fxFlex.gt-sm="250px">
+            <md-card-title>Add New Tab</md-card-title>
+            <md-card-content>
+              <md-checkbox [(ngModel)]="createWithLongContent">
+                Include extra content
+              </md-checkbox>
+              <md-checkbox [(ngModel)]="gotoNewTabAfterAdding">
+                Select after adding
+              </md-checkbox>
+              <div class="push-top">
+                Position:
+                <md-input-container>
+                  <input mdInput type="number" [(ngModel)]="addTabPosition">
+                </md-input-container>
+              </div>
+              <button md-raised-button color="primary" (click)="addTab(createWithLongContent)">
+                Add
+              </button>
+            </md-card-content>
+          </md-card>-->
+
+          <md-tab-group class="tab-group" dynamicHeight [(selectedIndex)]="activeTabIndex">
+            <md-tab *ngFor="let tab of dynamicTabs" [disabled]="tab.disabled">
+              <ng-template mdTabLabel>{{tab.label}}</ng-template>
+              {{tab.content}}
+              <!--<div id="outerDiv" [style.width]="customizeWidth">-->
+                <Pivot-Grid [ReportID]="ReportID"></Pivot-Grid>
+              <!--</div>-->
+             
+              <!--<br>
+              <br>
+              <div *ngIf="tab.extraContent">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.
+                Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus.
+                In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec,
+                Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec
+                orci posuere, nec luctus mauris semper.
+                <br>
+                <br>
+                Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec
+                magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis.
+                Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel.
+                Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit
+                tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed
+                nisl consectetur, rhoncus sapien sit amet, tempus sapien.
+                <br>
+                <br>
+                Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere
+                molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat,
+                at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est.
+                Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.
+              </div>
+              <br>
+              <br>
+              <md-input-container>
+                <input mdInput placeholder="Tab Label" [(ngModel)]="tab.label">
+              </md-input-container>
+              <br><br>-->
+              <button md-raised-button [disabled]="dynamicTabs.length == 1" (click)="deleteTab(tab)">
+                Delete Tab
+              </button>
+            </md-tab>
+          </md-tab-group>
+        </div>
+      </md-card-content>
+    <!--</md-card>-->
+  </article>
+</section>
